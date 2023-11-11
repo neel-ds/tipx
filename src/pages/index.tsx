@@ -1,118 +1,189 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ['latin'] })
+interface CardProps {
+  img: string;
+  name: string;
+  title: string;
+  desc: string;
+}
+
+const Card = ({ img, name, title, desc }: CardProps) => {
+  return (
+    <div className="w-full md:w-[32%] mb-2 m-5 sm:m-5 md:m-1 lg:m-1 bg-white/20 border border-violet-200 rounded-xl shadow-lg">
+      <div className="flex flex-col items-center py-10">
+        <Image
+          className="w-24 h-24 mb-3"
+          src={img}
+          width="70"
+          height="60"
+          alt={name}
+        />
+        <h5 className="mb-1 text-xl font-semibold text-gray-900">{name}</h5>
+        <span className="text-violet-500 font-medium">{title}</span>
+        <div className="flex mt-4 space-x-3 mx-auto w-[85%] md:mt-6">
+          <p className="inline-flex items-center px-4 py-2 text-gray-700 font-medium">
+            {desc}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const cardData = [
+  {
+    id: 1,
+    img: "https://uqo7rkrle6cnym5qp3utusnm5drypbudfuyeohtrrzs7yapj6nfq.arweave.net/pB34qisnhNwzsH7pOkms6OOHhoMtMEcecY5l_AHp80s",
+    name: "Degen Profile",
+    title: "Craft your unique social identity",
+    desc: "Showcase on-chain activities, achievements, and personality with personalized badges. Let the world see your contributions.",
+  },
+  {
+    id: 2,
+    img: "https://vciobckmuypxkub4mohnmzvmum6ogv27l7q7s26qpu5dtibsu4sa.arweave.net/qJDgiUymH3VQPGOO1masozzjV19f4flr0H06OaAypyQ",
+    name: "NFT portfolio",
+    title: "Flex your collection",
+    desc: "Top rare collection of yours with the highest floor price in the highlights. Maximize your chance of profile visits.",
+  },
+  {
+    id: 3,
+    img: "https://yape7wezdtm67fwh3t5tvanzbhszxnzsl5mwgfsdcdjozyidblka.arweave.net/wB5P2Jkc2e-Wx9z7OoG5CeWbtzJfWWMWQxDS7OEDCtQ",
+    name: "P2P Tipping",
+    title: "Monetize your influence",
+    desc: "Enable direct tips to your wallet fostering connection with your audience as they appreciate your work. Reward your chad!",
+  },
+];
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <Head>
+        <title>TipX</title>
+        <meta name="description" content="TipX" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Navbar />
+      <main className="min-h-[100vh] pt-32 md:pt-20 max-w-[1080px] mx-auto">
+        {/* Banner */}
+        <div className="ramp md:text-left h-[calc(100vh-60px)] flex flex-col md:flex-row justify-center items-center lg:mt-0 md:mt-0 sm:mt-24">
+          <div className="flex flex-col justify-center text-center md:text-left px-5 md:px-0 mr-0 md:mr-5">
+            <h1 className="font-heading text-4xl xs:text-5xl md:text-6xl xl:text-6xl font-bold text-gray-900 mb-8 sm:mb-14">
+              <span>Flex your social profile </span>
+              <span className="font-serif italic">on-chain</span>
+            </h1>
+            <span className="block text-violet-800 text-2xl font-medium tracking-tight">
+              Make the most of your time and audience
+            </span>
+            <p className="mt-3 text-base sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 text-gray-700">
+              Easily assess your activities and provides tag. Get your top NFT
+              collection showcase and share it with your frends. Simply create,
+              grow and earn!
+            </p>
+            <div className="mt-5 sm:mt-8 flex items-center justify-center md:justify-start lg:justify-start flex-row">
+              <div>
+                <Link
+                  href="#"
+                  className="w-full flex items-center justify-center px-8 py-3 border-0 border-transparent text-base font-medium rounded-3xl text-white bg-black hover:shadow-2xl"
+                >
+                  Know more
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="my-auto w-full md:w-[90%] sm:w-[70%] sm:mx-auto items-end">
+            <div className="relative">
+              <Image
+                src="https://ale5qaxrknjiyhnqdtbazgeecqo3xusyy3dcjlldotpkgn4uhdna.arweave.net/AsnYAvFTUowdsBzCDJiEFB270ljGxiStY3TeozeUONo"
+                width="650"
+                height="600"
+                alt="ProfileVector"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Top Featured */}
+        <div id="feature" className="mb-[50px]">
+          <div className="flex justify-center items-center mt-24 md:mt-0 md:mb-5">
+            <h1 className="text-2xl font-extrabold font-mono">TOP FEATURES</h1>
+          </div>
+          <div className="flex flex-wrap">
+            {cardData.map((card) => (
+              <Card
+                key={card.id}
+                img={card.img}
+                name={card.name}
+                title={card.title}
+                desc={card.desc}
+              />
+            ))}
+          </div>
+        </div>
+        {/* How much earn */}
+        <div
+          id="benefits"
+          className="my-[100px] flex flex-col md:flex-row items-center gap-5 md:gap-0 pt-5 md:pt-10 lg:pt-10 m-5"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="my-auto w-[80%] md:w-[50%] sm:w-[70%] sm:mx-auto items-end">
+            <Image
+              src="https://6ngn57kyw4jb34w7u3vizkmqswepwmggdvh3ztzem6mt546lbb5a.arweave.net/80ze_Vi3Eh3y36bqjKmQlYj7MMYdT7zPJGeZPvPLCHo"
+              width="400"
+              height="400"
+              alt="ServiceVector"
+            />
+          </div>
+          <div className="flex flex-col my-auto w-[80%] md:w-[50%] items-start">
+            <p className="text-2xl md:text-5xl font-bold pb-6">
+              See how much you can earn on TipX
+            </p>
+            <p className="text-lg md:text-xl font-serif flex flex-row gap-2 pb-3">
+              <text className="text-violet-400 font-extrabold">&gt;</text>{" "}
+              Prefer one-stop degen profile which evaluates your contribution
+            </p>
+            <p className="text-lg md:text-xl font-serif flex flex-row gap-2 pb-3">
+              <text className="text-violet-400 font-extrabold">&gt;</text> Stand
+              out from the crowd, don&apos;t sound like everbody else
+            </p>
+            <p className="text-lg md:text-xl font-serif flex flex-row gap-2 pb-3">
+              <text className="text-violet-400 font-extrabold">&gt;</text> Get
+              free social activity analysis in form of personalized badges
+            </p>
+            <p className="text-lg md:text-xl font-serif flex flex-row gap-2">
+              <text className="text-violet-400 font-extrabold">&gt;</text>{" "}
+              Transform your accomplishments into rewarding system
+            </p>
+            <div className="mt-5 sm:mt-8 sm:flex lg:justify-start flex-row">
+              <div>
+                <Link
+                  href="#"
+                  className="w-full flex items-center justify-center px-8 py-3 border-0 border-transparent text-base font-medium rounded-3xl text-white bg-black hover:shadow-2xl"
+                >
+                  Let&apos;s get in
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Flow */}
+        <div
+          id="flow"
+          className="my-[100px] flex bg-white/20 items-center justify-center rounded-xl py-5 md:py-10 lg:py-10 m-5"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          <div className="my-auto">
+            <Image
+              src="https://6ngn57kyw4jb34w7u3vizkmqswepwmggdvh3ztzem6mt546lbb5a.arweave.net/80ze_Vi3Eh3y36bqjKmQlYj7MMYdT7zPJGeZPvPLCHo"
+              width="400"
+              height="400"
+              alt="ServiceVector"
+            />
+          </div>
+        </div>
+        <Footer />
+      </main>
+    </>
+  );
 }
