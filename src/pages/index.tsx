@@ -25,7 +25,7 @@ const Card = ({ img, name, title, desc }: CardProps) => {
         <h5 className="mb-1 text-xl font-semibold text-gray-900">{name}</h5>
         <span className="text-violet-500 font-medium">{title}</span>
         <div className="flex mt-4 space-x-3 mx-auto w-[85%] md:mt-6">
-          <p className="inline-flex items-center px-4 py-2 text-gray-700 font-medium">
+          <p className="inline-flex items-center text-center px-4 py-2 text-gray-700 font-medium">
             {desc}
           </p>
         </div>
@@ -73,8 +73,11 @@ export default function Home() {
         <div className="ramp md:text-left h-[calc(100vh-60px)] flex flex-col md:flex-row justify-center items-center lg:mt-0 md:mt-0 sm:mt-24">
           <div className="flex flex-col justify-center text-center md:text-left px-5 md:px-0 mr-0 md:mr-5">
             <h1 className="font-heading text-4xl xs:text-5xl md:text-6xl xl:text-6xl font-bold text-gray-900 mb-8 sm:mb-14">
-              <span>Flex your social profile </span>
-              <span className="font-serif italic">on-chain</span>
+              <span>Flex your </span>
+              <span className="font-serif italic bg-gradient-to-bl from-[#732fff] to-[#9a2fff] text-transparent bg-clip-text">
+                social profile{" "}
+              </span>
+              <span>on-chain</span>
             </h1>
             <span className="block text-violet-800 text-2xl font-medium tracking-tight">
               Make the most of your time and audience
@@ -171,12 +174,12 @@ export default function Home() {
         {/* Flow */}
         <div
           id="flow"
-          className="my-[100px] flex bg-white/20 items-center justify-center rounded-xl py-5 md:py-10 lg:py-10 m-5"
+          className="mt-[100px] mb-[50px] flex bg-white/20 items-center justify-center border border-violet-100 rounded-3xl px-2 md:px-0 py-5 md:py-8 lg:py-8"
         >
           <div className="my-auto">
             <Image
-              src="https://6ngn57kyw4jb34w7u3vizkmqswepwmggdvh3ztzem6mt546lbb5a.arweave.net/80ze_Vi3Eh3y36bqjKmQlYj7MMYdT7zPJGeZPvPLCHo"
-              width="400"
+              src="https://lqzej2y43mob4kyclqyaz3so7voqk6bt23ivcc6ohwtxp7n7vrnq.arweave.net/XDJE6xzbHB4rAlwwDO5O_V0FeDPW0VELzj2nd_2_rFs"
+              width="1000"
               height="400"
               alt="ServiceVector"
             />
